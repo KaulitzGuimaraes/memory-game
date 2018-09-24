@@ -1,0 +1,7 @@
+
+.DS_Store
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+*.xml
+memory-game.iml
+package-lock.json
