@@ -1,28 +1,63 @@
+
+"Enable Experimental JavaScript"
 let gamePieces = ["../images/apple.png","../images/astah.jpg","../images/bootstap.jpg","../images/c.jpg",
     "../images/coursera.jpg","../images/cpp.jpg","../images/docker.png","../images/github.jpg","../images/ibm.jpg",
     "../images/java.png","../images/javascript.png","../images/jetbrains.png","../images/php.png","../images/pyhton.jpg",
     "../images/stackoverflow.png","../images/swift.png","../images/udemy.png","xcode.jpg"]
 let NUMBER_OF_PIECES = 36
 
-let TWO_CARDS = 2
+let TWO_PIECES = 2
 
+let BACK_PIECE_IMAGE = "../images/back.jpg"
 
-var currentCoords = []
 /** MODEL **/
 
+class CurrentCoordinates {
 
+        constructor(){
+
+        this.currentCoords = []
+    }
+
+     static getCurrentCoordinates(){
+        if (CurrentCoordinates.instance == undefined){
+            CurrentCoordinates.instance = new CurrentCoordinates()
+        }
+        return CurrentCoordinates.instance
+     }
+     addCoordinateInCurrentCoords(coordinate){
+
+        this.currentCoords.push(coordinate)
+    }
+    eraseCurrentCoordinates(){
+        this.currentCoords =[]
+    }
+    getCoordinate1(){
+        return this.currentCoords[0]
+    }
+    getCoordinate2(){
+        return this.currentCoords[1]
+    }
+
+    getCoordinatesLength(){
+        return this.currentCoords.length
+    }
+
+}
 //Pieces
 class Piece{
 
     constructor(coordinate){
-        this.image = "../images/back.jpg"
+        this.image = BACK_PIECE_IMAGE
         this.coordinate = coordinate
         this.isTurn = false
+        this.isClicked = false
         this.verifyIfPieceClick()
     }
     async turnPiece (){
         this.isTurn = true
-       currentCoords.push(this.coordinate)
+
+        CurrentCoordinates.getCurrentCoordinates().addCoordinateInCurrentCoords(this.coordinate)
     }
     turnBackPiece (){
         this.isTurn = false
@@ -65,9 +100,22 @@ class PairPieces {
 
     }
 
+    compareCoordinate(coordinate,piece){
 
+        return piece.coordinate.localeCompare(coordinate) == 0
+    }
+
+    comparePairOfCoodinates(pair1,pair2){
+        return ( pair1 & pair2)
+    }
     compareCoordinates(coordinate1, coordinate2) {
-        return (this.piece1.coordinate.localeCompare(coordinate1) == 0 & this.piece2.coordinate.localeCompare(coordinate2) == 0)
+      var isFirstPairMatch = this.comparePairOfCoodinates( this.compareCoordinate(coordinate1,this.piece1),
+          this.compareCoordinate(coordinate2,this.piece2))
+      var isSecondPairMatch  = this.comparePairOfCoodinates(this.compareCoordinate(coordinate1,this.piece2),
+          this.compareCoordinate(coordinate2,this.piece1))
+
+
+        return ( (isFirstPairMatch ) | (isSecondPairMatch))
     }
 }
 //Player
@@ -80,48 +128,98 @@ class Player{
     }
 
     addPoint(){
-        this.points++
+
+        this.points+=1
     }
      toString(){
         return this.name
      }
+
+
+
 }
 
 
-class SinglePlayer{
+
+class Players{
+
+  constructor(name){
+     this.points = 0
+      this.currentPlayer = new Player(name)
+
+  }
+
+    switchPlayer(){
+
+    }
+
+    addPointToTheCurrentPlayer(){
+      this.points +=1
+        this.currentPlayer.addPoint()
+    }
+    checkWhoWon(){
+
+    }
+    getWinnerData(){
+      this.checkWhoWon()
+      var data = [this.currentPlayer.name,this.currentPlayer.points]
+        return data
+    }
+
+}
+
+
+class SinglePlayer extends Players{
     constructor(name){
-        this.player = new Player(name)
+
+        super(name)
+
     }
     toString(){
         return "SinglePlayer"
     }
-    addPointToTheCurrentPlayer(){
-        this.currentPlayer.addPoint()
-    }
+
 }
-class Multiplayer{
+class Multiplayer extends  Players{
     constructor(name1,name2){
-        this.player1 = new Player(name1)
+        super(name1)
+        this.player1 = this.currentPlayer
         this.player2 = new Player(name2)
-        this.currentPlayer = this.player1
+
+
+    }
+    setPlayerXAsCurrent( player){
+        this.currentPlayer = player
     }
 
-    alertTheTurn(player){
-        alert("It is " + player +"time!!!")
+    alertTheTurn(){
+        alert("It is " + this.currentPlayer +" time!!!")
     }
 
     switchPlayer(){
 
         if(this.currentPlayer == this.player1){
-            this.currentPlayer = this.player2
+            this.setPlayerXAsCurrent( this.player2)
+
         }else{
-            this.currentPlayer = this.player1
+            this.setPlayerXAsCurrent( this.player1)
         }
-        this.alertTheTurn(this.currentPlayer)
+        this.alertTheTurn()
     }
-    addPointToTheCurrentPlayer(){
-        this.currentPlayer.addPoint()
+    checkWhoWon(){
+        if(this.player1.points > this.player2.points){
+            this.currentPlayer = this.player1
+        }else if(this.player1.points < this.player2.points){
+
+                this.currentPlayer = this.player2
+
+        } else {
+            this.currentPlayer = new Player(this.player1 + " and " + this.player2)
+            this.currentPlayer.points = this.points
+            alert("No one won!!!!")
+        }
     }
+
     toString(){
         return "Multiplayer"
     }
@@ -155,10 +253,11 @@ class  Table{
 }
 //Match
 class Match{
-    constructor(nameWinner,totalPointsWinner,gameMode,totalMatchTime){
+    constructor(nameWinner,totalPointsWinner,gameMode,totalMatchTime, tableConfig){
         this.nameWinner = nameWinner
         this.totalPointsWinner = totalPointsWinner
         this.gameMode = gameMode
+        this.tableConfig = tableConfig
         this.totalMatchTime = totalMatchTime
     }
 }
@@ -167,7 +266,16 @@ class HistoryGame{
     constructor(){
         this.matches = []
     }
-    addMatch(match){
+   static getHistoryGame(){
+        if(HistoryGame.instance == undefined){
+            HistoryGame.instance = new HistoryGame()
+        }
+        return HistoryGame.instance
+    }
+
+
+
+         addMatch(match){
         this.matches.push(match)
     }
 }
@@ -191,11 +299,14 @@ function diffHours(dt2, dt1)
 class Game{
 
     constructor(tableConfig,name1, name2){
+
         this.table = new Table(tableConfig)
-         //ASSEMBLY TABLE IN HERE
-        this.gameMode = this.createPlayers()
-        this.clickTimes = 0
-        this.verifyIfUserClickInApeace()
+        this.maxPoints = tableConfig
+        this.table.addPice(new PairPieces("", "Z_Z","Z_O"))
+        this.table.addPice(new PairPieces("", "O_Z","O_O"))
+        this.gameMode = this.createPlayers("Roger","Mary")
+        this.verifyIfUserClickInAPeace()
+        this.verifyIfGameEnd()
 
 
     }
@@ -211,14 +322,45 @@ class Game{
          this.gameTime = new Date()
      }
 
+     checkIfTheCurrentPlayerWonThePoint( answ){
+        if(answ)
+            this.gameMode.addPointToTheCurrentPlayer()
+         else {
+            alert("You've lost this point!!!")
+        }
+     }
+
+     switchPlayerTurn(){
+        this.gameMode.switchPlayer()
+     }
+
+
+
+     verifyIfGameEnd(){
+
+        var instance = this
+         document.querySelector("body").addEventListener("click",function () {
+             if(parseInt(instance.gameMode.points) == instance.maxPoints){
+                 var bufferMatch  = new Match(instance.gameMode.getWinnerData()[0],instance.gameMode.getWinnerData()[1],
+                     instance.gameMode.toString(),"",instance.table.tableConfiguration + "x" + instance.table.tableConfiguration)
+                 HistoryGame.getHistoryGame().addMatch(bufferMatch)
+                 console.log(HistoryGame.getHistoryGame().matches)
+             }
+         })
+
+
+
+
+     }
+
       checkIfThereIsTwoCardsToCompare() {
-         if ( currentCoords.length == TWO_CARDS) {
+         if ( CurrentCoordinates.getCurrentCoordinates().getCoordinatesLength() == TWO_PIECES) {
 
-             this.clickTimes = 0
-         var answ =  this.table.verifyIfPeacesMatch(currentCoords[0],currentCoords[1])
 
-             console.log(answ)
-         currentCoords = []
+         var answ =  this.table.verifyIfPeacesMatch(CurrentCoordinates.getCurrentCoordinates().getCoordinate1(),CurrentCoordinates.getCurrentCoordinates().getCoordinate2())
+         this.checkIfTheCurrentPlayerWonThePoint(answ)
+         CurrentCoordinates.getCurrentCoordinates().eraseCurrentCoordinates()
+         this.switchPlayerTurn()
 
          }
 
@@ -226,18 +368,24 @@ class Game{
 
      }
 
-     verifyIfUserClickInApeace(){
+     verifyIfUserClickInAPeace(){
         var instance = this
         // noinspection JSAnnotator
-         var classes = document.querySelectorAll("body")
+         var classes = document.querySelectorAll(".piecesListener")
        classes = [].slice.call(classes)
          classes.forEach(function (item, idx) {
              item.addEventListener("click", function () {
                  instance.checkIfThereIsTwoCardsToCompare()
+
              })
 
 })
+
      }
+
+
+
+
 }
 
 /*
