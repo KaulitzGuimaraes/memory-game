@@ -77,6 +77,38 @@ class Piece{
     }
 }
 
+
+class PiecesCollection{
+    constructor() {
+      this.pieces ={}
+      this.createAllPossiblePieces()
+    }
+
+    static getPiecesCollection(){
+        if(PiecesCollection.intance == undefined){
+            PiecesCollection.intance = new PiecesCollection()
+        }
+        return   PiecesCollection.intance
+    }
+
+    createAllPossiblePieces(){
+
+        for (var j = 0; j<Math.sqrt(NUMBER_OF_PIECES);j++){
+
+
+            for(var i =  0;i<6;i++){
+                var coordinate = j + "_" + i
+                this.pieces[coordinate] = new Piece(coordinate)
+
+            }
+
+        }
+
+
+
+}
+
+}
 class PairPieces {
     constructor(imageName, coordinate1,coordinate2){
         this.imageName = imageName
