@@ -10,6 +10,9 @@ let TWO_PIECES = 2
 
 let BACK_PIECE_IMAGE = "../images/back.jpg"
 
+/**
+ * TODO : CHANGE LISTENER In PIECE  TO ONCLICK()!; SHUFFLE THE IDS IN TABLE CONFIG
+ */
 /** MODEL **/
 
 class CurrentCoordinates {
@@ -20,7 +23,7 @@ class CurrentCoordinates {
     }
 
      static getCurrentCoordinates(){
-        if (CurrentCoordinates.instance == undefined){
+        if  ( (CurrentCoordinates.instance == undefined)){
             CurrentCoordinates.instance = new CurrentCoordinates()
         }
         return CurrentCoordinates.instance
@@ -88,16 +91,8 @@ class PairPieces {
     isPairMatch( coordinate1,coordinate2){
 
 
-       if( this.compareCoordinates(coordinate1, coordinate2)
-       || this.compareCoordinates(coordinate2,coordinate1)){
-
-
-           return true
-       }
-
-
-        return false
-
+       return (this.compareCoordinates(coordinate1, coordinate2)
+       || this.compareCoordinates(coordinate2,coordinate1))
     }
 
     compareCoordinate(coordinate,piece){
@@ -216,7 +211,7 @@ class Multiplayer extends  Players{
         } else {
             this.currentPlayer = new Player(this.player1 + " and " + this.player2)
             this.currentPlayer.points = this.points
-            alert("No one won!!!!")
+
         }
     }
 
@@ -226,11 +221,218 @@ class Multiplayer extends  Players{
 
 }
 //Table
-class  Table{
+class TableConfig{
+    constructor(config,ids){
+        this.config = config
+        this.ids = ids
+
+    }
+    assemblyTable(){
+
+    }
+
+    createTable(){
+        var table = this.assemblyTable()
+        document.querySelector("#table").innerHTML = table
+    }
+
+}
+
+class Table2x2 extends TableConfig {
+    constructor() {
+        super(2, ["Z_Z", "Z_O", "O_Z", "O_O"])
+        this.createTable()
+
+    }
+
+    assemblyTable() {
+
+        var table = '<table>' +
+            ' <tr> ' +
+            '<td id="Z_Z" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="O_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr> ' +
+            '</table>'
+
+
+        return table
+    }
+}
+
+class Table4x4 extends TableConfig{
+    constructor(){
+        super(4,["Z_Z","Z_O","Z_TW","Z_TH",
+            "O_Z","O_O","O_TW","O_TH",
+            "TW_Z","TW_O","TW_TW","TW_TH"
+           "TH_Z",  "TH_O", "TH_TW", "TH_TH" ])
+        this.createTable()
+
+    }
+    assemblyTable(){
+
+        var table = '<table>' +
+            '<tr><' +
+            'td id="Z_Z" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_TW" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="O_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="TW_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TW_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TW_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TW_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="TH_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TH_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TH_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TH_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '</table>'
+
+
+        return table
+    }
+}
+
+
+
+class Table6x6 extends TableConfig{
+    constructor(){
+        super(6,[
+            "Z_Z"," Z_O","Z_TW","Z_TH", "Z_FO","Z_FI",
+            "O_Z",  "O_O","O_TW","O_TH", "O_FO","O_FI",
+            "TW_Z", "TW_O","TW_TW","TW_TH", "TW_FO","TW_FI",
+            "TH_Z",  "TH_O", "TH_TW", "TH_TH", "TH_FO","TH_FI",
+            "FO_Z",  "FO_O", "FO_TW", "FO_TH", "FO_FO","FO_FI",
+            "FI_Z",  "FI_O", "FI_TW", "FI_TH", "FI_FO","FI_FI"
+             ])
+        this.createTable()
+
+    }
+    assemblyTable(){
+
+        var table = '<table>' +
+            '<tr>' +
+            '<td id="Z_Z" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_TW" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_FO" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="Z_FI" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="O_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="O_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="O_FO" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="O_FI" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="TW_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TW_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TW_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TW_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="TW_FO" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="TW_FI" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="TH_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TH_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TH_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="TH_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="TH_FO" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="TH_FI" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="FO_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="FO_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="FO_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="FO_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="FO_FO" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="FO_FI" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td  id="FI_Z"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="FI_O" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="FI_TW"  class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td  id="FI_TH" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="FI_FO" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '<td id="FI_FI" class="piecesListener"><img src="../images/back.jpg"/></td>' +
+            '</tr>' +
+            '</table>'
+
+
+        return table
+    }
+}
+
+
+
+class Table{
     constructor(tableConfiguration){
         this.pieces =[]
         this.tableConfiguration = tableConfiguration
+        this.nPieces =( Math.pow(this.tableConfiguration,2))/TWO_PIECES
+        this.tableHTML = this.searchTableConfig()
+        this.listOfImages = {}
+        this.insertPieces()
     }
+
+
+    searchTableConfig(){
+       switch (this.tableConfiguration ){
+           case 2 :
+               return new Table2x2()
+                break
+           case 4 :
+               return new Table4x4()
+                break
+           case 6 :
+               return  new Table6x6()
+              break
+       }
+    }
+    getRandomPieceNumber(number = NUMBER_OF_PIECES){
+        return randomPiece = Math.floor((Math.random() * number) + 1)
+    }
+    insertPieces(){
+       this.insertImages()
+        var nPieces = -1
+        while(nPieces < this.nPieces) {
+            var piece1 = nPieces+1
+            var piece2 = ++nPieces
+           this.addPice(new PairPieces(nPieces,this.tableHTML.ids[piece1],this.tableHTML.ids[piece2]))
+             this.listOfImages[piece1] = nPieces
+             this.listOfImages[piece2] = nPieces
+        }
+    }
+
+
+    insertImages(){
+        imagesNumber = new Set()
+        do{
+
+            imagesNumber.add(this.getRandomPieceNumber())
+
+        } while ( imagesNumber.length <this.nPieces)
+
+
+    }
+
+
 
     addPice(piece){
         this.pieces.push(piece)
@@ -278,6 +480,19 @@ class HistoryGame{
          addMatch(match){
         this.matches.push(match)
     }
+    /*RODRIIGO*/
+    assemblyHTML(data){
+        var htmlLine = "<p>"+ data.nameWinner + "<br/>" + data.totalPointsWinner + "<br/>" + data.gameMode + "<br/>" + data.tableConfig   + "<br/>" + data.totalMatchTime +  "<br/>"+  "</p>"
+      return htmlLine
+    }
+    showMatches(){
+       var htmlHistory = ""
+        for (var matchPos in this.matches){
+            htmlHistory+= this.assemblyHTML(this.matches[matchPos])
+            htmlHistory+="<br/>"
+        }
+        document.querySelector(".history").innerHTML = htmlHistory
+    }
 }
 
 
@@ -285,30 +500,30 @@ class HistoryGame{
 
 //Logic
 
-//time difference
+//time difference : https://albert-gonzalez.github.io/easytimer.js/
 
-function diffHours(dt2, dt1)
-{
 
-    var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-    diff /= (60 * 60);
-    return Math.abs(Math.round(diff));
-
-}
 //this.gameTime = diffHours(   this.gameTime, new Date())
 class Game{
 
     constructor(tableConfig,name1, name2){
-
+        this.verifyIfGameEnd()
         this.table = new Table(tableConfig)
         this.maxPoints = tableConfig
         this.table.addPice(new PairPieces("", "Z_Z","Z_O"))
         this.table.addPice(new PairPieces("", "O_Z","O_O"))
-        this.gameMode = this.createPlayers("Roger","Mary")
+        this.gameMode = this.createPlayers("Roger","Gary")
         this.verifyIfUserClickInAPeace()
-        this.verifyIfGameEnd()
 
 
+
+    }
+
+    static getGame(){
+        if(Game.instance == undefined){
+            Game.instance = new Game(2)
+        }
+        return Game.instance
     }
      createPlayers(name1,name2){
         if(name2 != null){
@@ -335,16 +550,21 @@ class Game{
      }
 
 
-
      verifyIfGameEnd(){
 
-        var instance = this
+
          document.querySelector("body").addEventListener("click",function () {
-             if(parseInt(instance.gameMode.points) == instance.maxPoints){
-                 var bufferMatch  = new Match(instance.gameMode.getWinnerData()[0],instance.gameMode.getWinnerData()[1],
-                     instance.gameMode.toString(),"",instance.table.tableConfiguration + "x" + instance.table.tableConfiguration)
+
+             if(parseInt(Game.getGame().gameMode.points) == Game.getGame().maxPoints){
+                 var bufferMatch  = new Match(Game.getGame().gameMode.getWinnerData()[0],Game.getGame().gameMode.getWinnerData()[1],
+                     Game.getGame().gameMode.toString(),"",Game.getGame().table.tableConfiguration + "x" + Game.getGame().table.tableConfiguration)
                  HistoryGame.getHistoryGame().addMatch(bufferMatch)
-                 console.log(HistoryGame.getHistoryGame().matches)
+                 console.log( HistoryGame.getHistoryGame().matches)
+                 HistoryGame.getHistoryGame().showMatches()
+                 alert("Game ended !!!!")
+                 Game.instance.gameMode = null
+               //  Game.instance.table = null
+
              }
          })
 
@@ -361,6 +581,13 @@ class Game{
          this.checkIfTheCurrentPlayerWonThePoint(answ)
          CurrentCoordinates.getCurrentCoordinates().eraseCurrentCoordinates()
          this.switchPlayerTurn()
+             // get image ramdomly
+             //get ids from a previous table
+             //assembly pairs
+             //to flip :  {"z_z": "image .."}
+             // to turn unflipped : if uncliked : flip,, if unfliped : back.jpg
+             //Onclik startGame : Instance game table = needed : Gametype : names
+             // EXTRA choose table randomly
 
          }
 
