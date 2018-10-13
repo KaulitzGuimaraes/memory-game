@@ -4,14 +4,30 @@ let gamePieces = ["../images/apple.png","../images/astah.jpg","../images/bootstr
     "../images/coursera.jpg","../images/cpp.jpg","../images/docker.png","../images/github.jpg","../images/ibm.jpg",
     "../images/java.png","../images/javascript.png","../images/jetbrains.png","../images/php.png","../images/python.jpg",
     "../images/stackoverflow.png","../images/swift.png","../images/udemy.jpg","../images/xcode.jpg"]
-let NUMBER_OF_PIECES = gamePieces.length
+let NUMBER_OF_PIECES = gamePieces.length-1
 
 let TWO_PIECES = 2
 
- 
-let BACK_PIECE_IMAGE = "../images/back.jpg"
 
-var id = ""
+
+
+function  verifyIfPieceClick(piece){
+
+
+
+
+    document.getElementById(piece).innerHTML = '<img src='+ gamePieces[ Game.instance.table.listOfImages[String(piece)]] +' alt=""/>'
+
+
+    setTimeout(function () {
+        CurrentCoordinates.getCurrentCoordinates().addCoordinateInCurrentCoords(piece)
+        Game.getGame().verifyIfUserClickInAPeace()
+        Game.getGame().verifyIfGameEnd()
+    },500)
+
+
+}
+
 /**
  * TODO : CHANGE LISTENER In PIECE  TO ONCLICK()!; TIME OF MATCH
  */
@@ -59,22 +75,7 @@ class Piece{
 
     }
 
-    static verifyIfPieceClick(piece){
-
-
-
-
-        document.getElementById(piece).innerHTML = '<img src='+ gamePieces[ Game.instance.table.listOfImages[String(piece)]] +' alt=""/>'
-
-
-       setTimeout(function () {
-           CurrentCoordinates.getCurrentCoordinates().addCoordinateInCurrentCoords(piece)
-           Game.getGame().verifyIfUserClickInAPeace()
-           Game.getGame().verifyIfGameEnd()
-       },500)
-
-
-    }
+    
 
 
 
@@ -239,7 +240,7 @@ class TableConfig{
         document.querySelector("#table").innerHTML = table
     }
      shuffle(array) {
-        for(var i =0; i < this.config;i++){
+
 
             var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -255,7 +256,7 @@ class TableConfig{
                 array[currentIndex] = array[randomIndex];
                 array[randomIndex] = temporaryValue;
             }
-        }
+
 
         return array;
     }
@@ -273,12 +274,12 @@ class Table2x2 extends TableConfig {
 
         var table = '<table>' +
             ' <tr> ' +
-            '<td id="Z_Z" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt="oi" onclick="verifyIfPieceClick(this.id)"/></td>' +
-            '<td id="Z_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_Z" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt="oi" onclick="verifyIfPieceClick(this.id)"/></td>' +
+            '<td id="Z_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="O_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr> ' +
             '</table>'
 
@@ -300,28 +301,28 @@ class Table4x4 extends TableConfig{
 
         var table = '<table>' +
             '<tr><' +
-            'td id="Z_Z" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TW" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            'td id="Z_Z" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TW" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="O_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TW_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TH_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '</table>'
 
@@ -349,52 +350,52 @@ class Table6x6 extends TableConfig{
 
         var table = '<table>' +
             '<tr>' +
-            '<td id="Z_Z" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TW" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_FO" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_FI" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_Z" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TW" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="O_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="O_FO" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="O_FI" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="O_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="O_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TW_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TW_FO" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TW_FI" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TW_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TW_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TH_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TH_FO" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TH_FI" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TH_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TH_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="FO_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FO_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FO_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FO_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FO_FO" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FO_FI" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FO_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FO_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="FI_Z"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FI_O" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FI_TW"  class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FI_TH" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FI_FO" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FI_FI" class="piecesListener" onclick="Piece.verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FI_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FI_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '</table>'
 
@@ -439,6 +440,7 @@ class Table{
 
         var nPieces = -1
         while(nPieces < Math.pow(this.tableConfiguration,2)-1) {
+
             nPieces +=1
 
             var piece1 = nPieces
@@ -446,8 +448,6 @@ class Table{
             nPieces +=1
 
             var piece2 = (nPieces)
-            console.log(imgPos)
-            console.log("==========")
            this.addPice(new PairPieces( this.imageNumbers[imgPos],this.ids[piece1],this.ids[piece2]))
              this.listOfImages[String(this.ids[piece1])] =  this.imageNumbers[imgPos]
              this.listOfImages[String(this.ids[piece2])] =this.imageNumbers[imgPos]
@@ -456,13 +456,19 @@ class Table{
 
 
     insertImages(){
-        var imagesNumber = new Set()
-        do{
+        var myArr
+        if(this.tableConfiguration == 6){
+           myArr = this.tableHTML.shuffle([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])
+        }else {
+            var imagesNumber = new Set()
+            do{
 
-            imagesNumber.add(this.getRandomPieceNumber())
+                imagesNumber.add(this.getRandomPieceNumber())
 
-        } while ( imagesNumber.size <this.nPieces)
-       var myArr =Array.from(imagesNumber)
+            } while ( imagesNumber.size <this.nPieces)
+             myArr =Array.from(imagesNumber)
+        }
+
         return myArr
     }
 
@@ -514,12 +520,14 @@ class HistoryGame{
          addMatch(match){
         this.matches.push(match)
     }
-    /*RODRIIGO*/
+
     assemblyHTML(data){
-        var htmlLine = "<p>"+ data.nameWinner + "<br/>" +
-            data.totalPointsWinner + "<br/>" + data.gameMode + "<br/>" +
-            data.tableConfig   + "<br/>" +
-            data.totalMatchTime +  "<br/>"+  "</p>"
+        var htmlLine = "<p>"+"Name : " +  data.nameWinner + "<br/>" +
+           "Total Points : " +  data.totalPointsWinner + "<br/>" +
+           "Game mode : "+  data.gameMode + "<br/>" +
+            "Table : " + data.tableConfig   + "<br/>" +
+            "Total time : " + data.totalMatchTime + "seconds"+ "<br/>"+
+            "</p>"
       return htmlLine
     }
     showMatches(){
@@ -528,7 +536,7 @@ class HistoryGame{
             htmlHistory+= this.assemblyHTML(this.matches[matchPos])
             htmlHistory+="<br/>"
         }
-        document.querySelector(".history").innerHTML = htmlHistory
+        document.querySelector("#history").innerHTML = htmlHistory
     }
 }
 
@@ -545,23 +553,31 @@ class Game{
 
     constructor(tableConfig,name1, name2){
 
+
         this.table = new Table(tableConfig)
         this.maxPoints = Math.pow(tableConfig,2)/2
         this.gameMode = this.createPlayers(name1,name2)
+        this.timeMatch= new Date()
 
 
 
 
     }
 
-    static getGame(){
+    instanceTime(timer) {
+        timer.addEventListener('secondsUpdated', function (e) {
+            document.querySelector('#basicUsage').html(timer.getTimeValues().toString());
+        });
+    }
+
+    static getGame(tableCconfig, name1,name2){
         if(Game.instance == undefined){
-            Game.instance = new Game(4,"Kau","Roger")
+            Game.instance = new Game(tableCconfig,name1,name2)
         }
         return Game.instance
     }
      createPlayers(name1,name2){
-        if(name2 != null){
+        if(String(name2) !== ""){
             return  new Multiplayer(name1,name2)
         }else{
             return new SinglePlayer(name1)
@@ -577,6 +593,9 @@ class Game{
             this.setUnclicakble(CurrentCoordinates.getCurrentCoordinates().getCoordinate1());
             this.setUnclicakble(CurrentCoordinates.getCurrentCoordinates().getCoordinate2());
             this.gameMode.addPointToTheCurrentPlayer()
+            alert("You've won this point!!")
+            document.getElementById(CurrentCoordinates.getCurrentCoordinates().getCoordinate1()).className += " clicked"
+            document.getElementById(CurrentCoordinates.getCurrentCoordinates().getCoordinate2()).className += " clicked"
         }
 
          else {
@@ -604,14 +623,15 @@ class Game{
 
 
              if(parseInt(Game.getGame().gameMode.points) === Game.getGame().maxPoints){
+                 this.timeMatch= (new Date() - this.timeMatch ) /1000
                  var bufferMatch  = new Match(Game.getGame().gameMode.getWinnerData()[0],Game.getGame().gameMode.getWinnerData()[1],
-                     Game.getGame().gameMode.toString(),"",Game.getGame().table.tableConfiguration + "x" + Game.getGame().table.tableConfiguration)
+                     Game.getGame().gameMode.toString(),this.timeMatch,Game.getGame().table.tableConfiguration + "x" + Game.getGame().table.tableConfiguration)
                  HistoryGame.getHistoryGame().addMatch(bufferMatch)
                  console.log( HistoryGame.getHistoryGame().matches)
                  HistoryGame.getHistoryGame().showMatches()
                  alert("Game ended !!!!")
-                 Game.instance.gameMode = null
-                 Game.instance.table = null
+                 Game.instance = undefined
+
 
              }
 
@@ -622,21 +642,13 @@ class Game{
      }
 
       checkIfThereIsTwoCardsToCompare() {
-         if ( CurrentCoordinates.getCurrentCoordinates().getCoordinatesLength() == TWO_PIECES) {
+         if ( CurrentCoordinates.getCurrentCoordinates().getCoordinatesLength() === TWO_PIECES) {
 
 
          var answ =  this.table.verifyIfPeacesMatch(CurrentCoordinates.getCurrentCoordinates().getCoordinate1(),CurrentCoordinates.getCurrentCoordinates().getCoordinate2())
          this.checkIfTheCurrentPlayerWonThePoint(answ)
          CurrentCoordinates.getCurrentCoordinates().eraseCurrentCoordinates()
          this.switchPlayerTurn()
-             // get image ramdomly
-             //get ids from a previous table
-             //assembly pairs
-             //to flip :  {"z_z": "image .."}
-             // to turn unflipped : if uncliked : flip,, if unfliped : back.jpg
-             //Onclik startGame : Instance game table = needed : Gametype : names
-             // EXTRA choose table randomly
-
          }
 
 
@@ -649,10 +661,6 @@ class Game{
                  this.checkIfThereIsTwoCardsToCompare()
 
      }
-
-
-
-
 }
 
 /*
