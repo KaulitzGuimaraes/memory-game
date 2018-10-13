@@ -28,6 +28,34 @@ function  verifyIfPieceClick(piece){
 
 }
 
+function getImage(unclick,pos) {
+    if(unclick){
+        return "../images/back.jpg"
+    }else {
+        var imgPos
+        imgPos = Game.getGame().table.listOfImages[pos]
+        return gamePieces[imgPos]
+    }
+
+}
+
+function dealWithUnclickedPieces(unclick) {
+       var htmlTds = getPiecesToShow()
+
+       for (var pos in htmlTds){
+
+           document.querySelector('#' + htmlTds[pos].id).innerHTML = "<img src='"+ getImage(unclick,htmlTds[pos].id)+"' alt=''/>"
+       }
+
+
+}
+
+function getPiecesToShow() {
+    var htmlTds = document.querySelectorAll(".unclicked")
+    return htmlTds;
+}
+
+
 /**
  * TODO : CHANGE LISTENER In PIECE  TO ONCLICK()!; TIME OF MATCH
  */
@@ -274,12 +302,12 @@ class Table2x2 extends TableConfig {
 
         var table = '<table>' +
             ' <tr> ' +
-            '<td id="Z_Z" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt="oi" onclick="verifyIfPieceClick(this.id)"/></td>' +
-            '<td id="Z_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_Z" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt="oi" onclick="verifyIfPieceClick(this.id)"/></td>' +
+            '<td id="Z_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="O_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr> ' +
             '</table>'
 
@@ -301,28 +329,28 @@ class Table4x4 extends TableConfig{
 
         var table = '<table>' +
             '<tr><' +
-            'td id="Z_Z" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TW" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            'td id="Z_Z" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TW" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="O_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TW_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TH_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '</table>'
 
@@ -336,7 +364,7 @@ class Table4x4 extends TableConfig{
 class Table6x6 extends TableConfig{
     constructor(){
         super(6,[
-            "Z_Z"," Z_O","Z_TW","Z_TH", "Z_FO","Z_FI",
+            "Z_Z","Z_O","Z_TW","Z_TH", "Z_FO","Z_FI",
             "O_Z",  "O_O","O_TW","O_TH", "O_FO","O_FI",
             "TW_Z", "TW_O","TW_TW","TW_TH", "TW_FO","TW_FI",
             "TH_Z",  "TH_O", "TH_TW", "TH_TH", "TH_FO","TH_FI",
@@ -350,52 +378,52 @@ class Table6x6 extends TableConfig{
 
         var table = '<table>' +
             '<tr>' +
-            '<td id="Z_Z" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TW" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="Z_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_Z" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TW" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="Z_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="O_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="O_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="O_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="O_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="O_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="O_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="O_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TW_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TW_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TW_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TW_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TW_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TW_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TW_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="TH_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="TH_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TH_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="TH_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="TH_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TH_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="TH_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="FO_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FO_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FO_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FO_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FO_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FO_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FO_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FO_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FO_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '<tr>' +
-            '<td  id="FI_Z"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FI_O" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FI_TW"  class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td  id="FI_TH" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FI_FO" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '<td id="FI_FI" class="piecesListener" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td  id="FI_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FI_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '<td id="FI_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '</tr>' +
             '</table>'
 
@@ -594,8 +622,8 @@ class Game{
             this.setUnclicakble(CurrentCoordinates.getCurrentCoordinates().getCoordinate2());
             this.gameMode.addPointToTheCurrentPlayer()
             alert("You've won this point!!")
-            document.getElementById(CurrentCoordinates.getCurrentCoordinates().getCoordinate1()).className += " clicked"
-            document.getElementById(CurrentCoordinates.getCurrentCoordinates().getCoordinate2()).className += " clicked"
+            this.setIdClicked(CurrentCoordinates.getCurrentCoordinates().getCoordinate1());
+            this.setIdClicked(CurrentCoordinates.getCurrentCoordinates().getCoordinate2());
         }
 
          else {
@@ -605,6 +633,12 @@ class Game{
             this.backToBack(CurrentCoordinates.getCurrentCoordinates().getCoordinate2())
         }
      }
+
+    setIdClicked(coordinate) {
+        document.getElementById(coordinate).className = "clicked"
+
+    }
+
     backToBack(id){
         document.querySelector("#" + id).innerHTML = '<img src="../images/back.jpg" alt=""/>'
     }
