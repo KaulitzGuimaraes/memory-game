@@ -550,11 +550,11 @@ class HistoryGame{
     }
 
     assemblyHTML(data){
-        var htmlLine = "<p>"+"Name : " +  data.nameWinner + "<br/>" +
-           "Total Points : " +  data.totalPointsWinner + "<br/>" +
-           "Game mode : "+  data.gameMode + "<br/>" +
-            "Table : " + data.tableConfig   + "<br/>" +
-            "Total time : " + data.totalMatchTime + "seconds"+ "<br/>"+
+        var htmlLine = "<p>"+"Name : " +  data.nameWinner + ".<br/>" +
+           "Total Points : " +  data.totalPointsWinner + ".<br/>" +
+           "Game mode : "+  data.gameMode + ".<br/>" +
+            "Table : " + data.tableConfig   + ".<br/>" +
+            "Total time : " + data.totalMatchTime + ". seconds."+ "<br/>"+
             "</p>"
       return htmlLine
     }
