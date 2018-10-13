@@ -585,18 +585,10 @@ class Game{
         this.table = new Table(tableConfig)
         this.maxPoints = Math.pow(tableConfig,2)/2
         this.gameMode = this.createPlayers(name1,name2)
-        this.timeMatch= new Date()
-
-
-
+        this.alertGameStart()
 
     }
 
-    instanceTime(timer) {
-        timer.addEventListener('secondsUpdated', function (e) {
-            document.querySelector('#basicUsage').html(timer.getTimeValues().toString());
-        });
-    }
 
     static getGame(tableCconfig, name1,name2){
         if(Game.instance == undefined){
@@ -613,7 +605,7 @@ class Game{
      }
      alertGameStart(){
         alert("THE MATCH IS STARTING");
-         this.gameTime = new Date()
+         this.timeMatch= new Date()
      }
 
      checkIfTheCurrentPlayerWonThePoint( answ){
