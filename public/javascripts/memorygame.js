@@ -17,7 +17,7 @@ let icons = ['../images/icon0.jpg', '../images/icon1.jpg', '../images/icon2.jpg'
     '../images/icon15.jpg', '../images/icon16.jpg', '../images/icon17.jpg']
 var gamePieces  = null
 var NUMBER_OF_PIECES = null
-
+let NUMBER_OF_OPTIONS = 3
 let TWO_PIECES = 2
 
 rules =
@@ -86,11 +86,19 @@ function getPiecesToShow() {
     return htmlTds;
 }
 
+function chooseRandomly() {
+    var rand1 = Math.floor((Math.random() * NUMBER_OF_OPTIONS)  )
+    document.querySelectorAll('input[name="theme"]')[rand1].click()
+    var rand2 = Math.floor((Math.random() * NUMBER_OF_OPTIONS)  )
+  
+    document.querySelectorAll('input[name="table"]')[rand2].click()
+}
 
-/**
- * TODO : CHANGE LISTENER In PIECE  TO ONCLICK()!; TIME OF MATCH
+/*
+BACKEND CODE
  */
-/** MODEL **/
+
+
 
 class CurrentCoordinates {
 
