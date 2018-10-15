@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <script  src="../javascripts/memorygame.js"></script>
-    <style >
-        td{
-            width: 14px;
-            height: 14px;
-        }
-        img{
-            width: 40px;
-            height: 40px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
     <title>Test</title>
 </head>
 <body>
 <h1>MEMORY GAME</h1>
+<a id="click" href="#push"></a>
 <header id="members">Kaulitz Guimarães : 188530 - Rodrigo Martins : 157194 - Verussa Caridi : 206453 -  Brenda Januário : 194832 </header>
 <form>
     First Player:<br/>
@@ -35,6 +27,7 @@
     <input type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
     <input type="button" onclick="startGame()" value="START GAME">
 </form>
+
 <div id="table">
 
     <h2>RULES</h2>
@@ -54,6 +47,7 @@
     <input type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
     <input type="button" onclick="stopGame(true)" value="STOP GAME">
 </form>
+<h3 id="push"></h3>
 <div id="history">
 </div>
 <footer> Web programming- SI401A </footer>

@@ -34,10 +34,10 @@ rules =
 //FRONT END FUNCTIONS
 
 
-tableConfig = [undefined,2,4,6]
+var tableConfig = [undefined,2,4,6]
 
-themes = [undefined,programmerAddicted,halloween,icons]
-
+var themes = [undefined,programmerAddicted,halloween,icons]
+var cssThemes = [undefined,"../css/programmerAddicted.css","../css/halloween.css","../css/icons.css"]
 function startGame() {
     var name1 =  document.querySelector("#name1").value
     if(name1 === ""){
@@ -48,6 +48,11 @@ function startGame() {
     var theme = document.querySelector('input[name="theme"]:checked').value
     var tableConfigN = document.querySelector('input[name="table"]:checked').value
     Game.getGame(tableConfig[tableConfigN],themes[theme],name1,name2)
+    document.querySelector("link").setAttribute("href",cssThemes[theme])
+    setTimeout(function () {
+        document.querySelector("#click").click()
+    },100)
+
 
 }
 
