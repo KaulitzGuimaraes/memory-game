@@ -691,6 +691,7 @@ class Game{
                  HistoryGame.getHistoryGame().showMatches()
                  alert("Game ended !!!!")
                  Game.instance = undefined
+                 document.querySelector("#table").innerHTML = rules
 
 
              }
