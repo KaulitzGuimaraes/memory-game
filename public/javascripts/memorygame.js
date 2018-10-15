@@ -20,24 +20,48 @@ var NUMBER_OF_PIECES = null
 
 let TWO_PIECES = 2
 
+rules =  "<p>" +
+    "<h2>RULES</h2>" +
+    "<ol>" +
+    "<li>You must choose the theme and the table configuration</li>" +
+    "<li>If you want to play as  a Single Player, let the name of player 2 in blank</li>" +
+    "<li>The first player is the  name1 </li>" +
+    "<li>The game ends when the last pair of pieces is founded.</li>" +
+    "<li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>" +
+    "Have a nice game!!!" +
+    "</ol>" +
+    "</p>"
+//FRONT END FUNCTIONS
 
 
+tableConfig = [undefined,2,4,6]
 
+themes = [undefined,programmerAddicted,halloween,icons]
+
+function startGame(tableConfigN,theme, name1, name2) {
+    Game.getGame(tableConfig[tableConfigN],themes[theme],name1,name2)
+
+}
+
+function stopGame() {
+    alert("You game has been stopped!!!")
+    Game.instance = undefined
+    document.querySelector("#table").innerHTML = rules
+}
+
+function dealWithUnclickedPieces(unclick) {
+    var htmlTds = getPiecesToShow()
+    for (var pos in htmlTds){
+        document.querySelector('#' + htmlTds[pos].id).innerHTML = "<img src='"+ getImage(unclick,htmlTds[pos].id)+"' alt=''/>"
+    }
+}
 function  verifyIfPieceClick(piece){
-
-
-
-
     document.getElementById(piece).innerHTML = '<img src='+ gamePieces[ Game.instance.table.listOfImages[String(piece)]] +' alt=""/>'
-
-
     setTimeout(function () {
         CurrentCoordinates.getCurrentCoordinates().addCoordinateInCurrentCoords(piece)
         Game.getGame().verifyIfUserClickInAPeace()
         Game.getGame().verifyIfGameEnd()
     },500)
-
-
 }
 
 function getImage(unclick,pos) {
@@ -51,16 +75,7 @@ function getImage(unclick,pos) {
 
 }
 
-function dealWithUnclickedPieces(unclick) {
-       var htmlTds = getPiecesToShow()
 
-       for (var pos in htmlTds){
-
-           document.querySelector('#' + htmlTds[pos].id).innerHTML = "<img src='"+ getImage(unclick,htmlTds[pos].id)+"' alt=''/>"
-       }
-
-
-}
 
 function getPiecesToShow() {
     var htmlTds = document.querySelectorAll(".unclicked")
@@ -601,17 +616,7 @@ class Game{
 
     }
     chooseTheme(theme){
-        switch (theme){
-            case "halloween" :
-                gamePieces = halloween
-                break
-            case "programmerAddicted" :
-                gamePieces = programmerAddicted
-                break
-            case "meme's icons" :
-                gamePieces = icons
-                break
-        }
+         gamePieces = theme
          NUMBER_OF_PIECES = gamePieces.length-1
     }
 
