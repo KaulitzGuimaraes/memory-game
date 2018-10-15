@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="../javascripts/memorygame.js"></script>
-    <style type="text/css">
+    <script  src="../javascripts/memorygame.js"></script>
+    <style >
         td{
             width: 14px;
             height: 14px;
@@ -16,9 +16,25 @@
     <title>Test</title>
 </head>
 <body>
-
+<h1>MEMORY GAME</h1>
+<header id="members">Kaulitz Guimarães : 188530 - Rodrigo Martins : 157194 - Verussa Caridi : 206453 -  Brenda Januário : 194832 </header>
+<form>
+    First Player:<br/>
+    <input id="name1" type="text" name="firstname" value="" required><br/>
+    Second Player:<br/>
+    <input id="name2" type="text" name="lastname" value="" required><br/>
+    Table configuration :<br/>
+    <input type="radio" name="table" value="1" checked> 2x2<br/>
+    <input type="radio" name="table" value="2" > 4x4<br/>
+    <input type="radio" name="table" value="3" > 6x6<br/>
+    Theme :<br/>
+    <input type="radio" name="theme" value="1" checked> programmerAddicted<br/>
+    <input type="radio" name="theme" value="2" > Halloween<br/>
+    <input type="radio" name="theme" value="3" > Meme Icons<br/>
+    <input type="button" onclick="startGame()" value="START GAME">
+</form>
 <div id="table">
-    <p>
+
     <h2>RULES</h2>
     <ol>
     <li>You must choose the theme and the table configuration</li>
@@ -26,11 +42,18 @@
     <li>The first player is the  name1 </li>
     <li>The game ends when the last pair of pieces is founded.</li>
     <li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>
-    Have a nice game!!!
+    <li>Have a nice game!!!</li>
     </ol>
-    </p>
+
 </div>
+<form>
+
+    <input type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
+    <input type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
+    <input type="button" onclick="stopGame(true)" value="STOP GAME">
+</form>
 <div id="history">
 </div>
+<footer> Web programming- SI401A </footer>
 </body>
 </html>

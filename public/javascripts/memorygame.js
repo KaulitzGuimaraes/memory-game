@@ -20,7 +20,7 @@ var NUMBER_OF_PIECES = null
 
 let TWO_PIECES = 2
 
-rules =  "<p>" +
+rules =
     "<h2>RULES</h2>" +
     "<ol>" +
     "<li>You must choose the theme and the table configuration</li>" +
@@ -28,9 +28,9 @@ rules =  "<p>" +
     "<li>The first player is the  name1 </li>" +
     "<li>The game ends when the last pair of pieces is founded.</li>" +
     "<li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>" +
-    "Have a nice game!!!" +
-    "</ol>" +
-    "</p>"
+    "<li>Have a nice game!!!</li>" +
+    "</ol>"
+
 //FRONT END FUNCTIONS
 
 
@@ -38,7 +38,11 @@ tableConfig = [undefined,2,4,6]
 
 themes = [undefined,programmerAddicted,halloween,icons]
 
-function startGame(tableConfigN,theme, name1, name2) {
+function startGame() {
+    var name1 =  document.querySelector("#name1").value
+    var name2 =  document.querySelector("#name2").value
+    var theme = document.querySelector('input[name="theme"]:checked').value
+    var tableConfigN = document.querySelector('input[name="table"]:checked').value
     Game.getGame(tableConfig[tableConfigN],themes[theme],name1,name2)
 
 }
