@@ -1,10 +1,22 @@
 
 "Enable Experimental JavaScript"
-let gamePieces = ["../images/apple.png","../images/astah.jpg","../images/bootstrap.jpg","../images/c.jpg",
+let programmerAddicted = ["../images/apple.png","../images/astah.jpg","../images/bootstrap.jpg","../images/c.jpg",
     "../images/coursera.jpg","../images/cpp.jpg","../images/docker.png","../images/github.jpg","../images/ibm.jpg",
     "../images/java.png","../images/javascript.png","../images/jetbrains.png","../images/php.png","../images/python.jpg",
     "../images/stackoverflow.png","../images/swift.png","../images/udemy.jpg","../images/xcode.jpg"]
-let NUMBER_OF_PIECES = gamePieces.length-1
+
+let halloween = ['../images/halloween0.jpg', '../images/halloween1.jpg', '../images/halloween2.jpg',
+    '../images/halloween3.jpg', '../images/halloween4.jpg', '../images/halloween5.png', '../images/halloween6.jpg',
+    '../images/halloween7.jpg', '../images/halloween8.jpg', '../images/halloween9.jpg', '../images/halloween10.jpg',
+    '../images/halloween11.jpg', '../images/halloween12.jpg', '../images/halloween13.jpg', '../images/halloween14.png',
+    '../images/halloween15.jpg', '../images/halloween16.jpg', '../images/halloween17.png', '../images/halloween.jpg','../images/halloween18.png']
+let icons = ['../images/icon0.jpg', '../images/icon1.jpg', '../images/icon2.jpg',
+    '../images/icon3.jpg', '../images/icon4.jpg', '../images/icon5.jpg', '../images/icon6.jpg',
+    '../images/icon7.jpg', '../images/icon8.jpg', '../images/icon9.jpg', '../images/icon10.jpg',
+    '../images/icon11.jpg', '../images/icon12.jpg', '../images/icon13.jpg', '../images/icon14.jpg',
+    '../images/icon15.jpg', '../images/icon16.jpg', '../images/icon17.jpg']
+var gamePieces  = null
+var NUMBER_OF_PIECES = null
 
 let TWO_PIECES = 2
 
@@ -579,20 +591,33 @@ class HistoryGame{
 //this.gameTime = diffHours(   this.gameTime, new Date())
 class Game{
 
-    constructor(tableConfig,name1, name2){
+    constructor(tableConfig,theme,name1, name2){
 
-
+        this.chooseTheme(theme)
         this.table = new Table(tableConfig)
         this.maxPoints = Math.pow(tableConfig,2)/2
         this.gameMode = this.createPlayers(name1,name2)
         this.alertGameStart()
 
     }
+    chooseTheme(theme){
+        switch (theme){
+            case "halloween" :
+                gamePieces = halloween
+                break
+            case "programmerAddicted" :
+                gamePieces = programmerAddicted
+                break
+            case "meme's icons" :
+                gamePieces = icons
+                break
+        }
+         NUMBER_OF_PIECES = gamePieces.length-1
+    }
 
-
-    static getGame(tableCconfig, name1,name2){
+    static getGame(tableConfig,theme, name1,name2){
         if(Game.instance == undefined){
-            Game.instance = new Game(tableCconfig,name1,name2)
+            Game.instance = new Game(tableConfig,theme,name1,name2)
         }
         return Game.instance
     }
