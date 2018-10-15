@@ -40,6 +40,10 @@ themes = [undefined,programmerAddicted,halloween,icons]
 
 function startGame() {
     var name1 =  document.querySelector("#name1").value
+    if(name1 === ""){
+        alert("You must fill 'First Player' field")
+        return
+    }
     var name2 =  document.querySelector("#name2").value
     var theme = document.querySelector('input[name="theme"]:checked').value
     var tableConfigN = document.querySelector('input[name="table"]:checked').value
@@ -90,7 +94,7 @@ function chooseRandomly() {
     var rand1 = Math.floor((Math.random() * NUMBER_OF_OPTIONS)  )
     document.querySelectorAll('input[name="theme"]')[rand1].click()
     var rand2 = Math.floor((Math.random() * NUMBER_OF_OPTIONS)  )
-  
+
     document.querySelectorAll('input[name="table"]')[rand2].click()
 }
 
@@ -589,11 +593,12 @@ class HistoryGame{
     }
 
     assemblyHTML(data){
+        let min = 60;
         var htmlLine = "<p>"+"Name : " +  data.nameWinner + ".<br/>" +
            "Total Points : " +  data.totalPointsWinner + ".<br/>" +
            "Game mode : "+  data.gameMode + ".<br/>" +
             "Table : " + data.tableConfig   + ".<br/>" +
-            "Total time : " + data.totalMatchTime + ". seconds."+ "<br/>"+
+            "Total time : " + (data.totalMatchTime/ min) + " minutes."+ "<br/>"+
             "</p>"
       return htmlLine
     }
