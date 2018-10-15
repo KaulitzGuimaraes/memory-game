@@ -593,12 +593,12 @@ class HistoryGame{
     }
 
     assemblyHTML(data){
-        let min = 60;
+        let min =(data.totalMatchTime/ 60).toFixed(2);
         var htmlLine = "<p>"+"Name : " +  data.nameWinner + ".<br/>" +
            "Total Points : " +  data.totalPointsWinner + ".<br/>" +
            "Game mode : "+  data.gameMode + ".<br/>" +
             "Table : " + data.tableConfig   + ".<br/>" +
-            "Total time : " + (data.totalMatchTime/ min) + " minutes."+ "<br/>"+
+            "Total time : " + min + " minutes."+ "<br/>"+
             "</p>"
       return htmlLine
     }
