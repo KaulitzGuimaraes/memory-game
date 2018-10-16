@@ -2,3 +2,16 @@ body{
     background-color: cornflowerblue;
 
 }
+#table{
+
+    width: 800px;
+}
+.container{
+
+    display: flex;
+    justify-content: center;
+}
+td img{
+    width: 3cm;
+    height: 3cm;
+}

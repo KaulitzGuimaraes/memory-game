@@ -27,29 +27,32 @@
     <input type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
     <input type="button" onclick="startGame()" value="START GAME">
 </form>
+<div class="container">
+    <div id="table">
 
-<div id="table">
+        <h2>RULES</h2>
+        <ol>
+            <li>You must choose the theme and the table configuration</li>
+            <li>If you want to play as  a Single Player, let the name of player 2 in blank</li>
+            <li>The first player is the  name1 </li>
+            <li>The game ends when the last pair of pieces is founded.</li>
+            <li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>
+            <li>Have a nice game!!!</li>
+        </ol>
 
-    <h2>RULES</h2>
-    <ol>
-    <li>You must choose the theme and the table configuration</li>
-    <li>If you want to play as  a Single Player, let the name of player 2 in blank</li>
-    <li>The first player is the  name1 </li>
-    <li>The game ends when the last pair of pieces is founded.</li>
-    <li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>
-    <li>Have a nice game!!!</li>
-    </ol>
-
+    </div>
+    <h3 id="push"></h3>
+    <div id="history"></div>
 </div>
+
 <form>
 
     <input type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
     <input type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
     <input type="button" onclick="stopGame(true)" value="STOP GAME">
 </form>
-<h3 id="push"></h3>
-<div id="history">
-</div>
+
+
 <footer> Web programming- SI401A </footer>
 </body>
 </html>

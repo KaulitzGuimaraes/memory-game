@@ -4,7 +4,30 @@ body{
 
 }
 
- td img{
+
+h1{
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+}
+header  {
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+}
+footer{
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+}
+#table{
+
+    width: 800px;
+}
+.container{
+
+    display: flex;
+    justify-content: center;
+}
+td img{
      width: 3cm;
      height: 3cm;
 }
+
