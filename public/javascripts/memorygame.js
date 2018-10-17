@@ -48,7 +48,7 @@ function startGame() {
     var theme = document.querySelector('input[name="theme"]:checked').value
     var tableConfigN = document.querySelector('input[name="table"]:checked').value
     Game.getGame(tableConfig[tableConfigN],themes[theme],name1,name2)
-    document.querySelector("link").setAttribute("href",cssThemes[theme])
+    document.querySelectorAll("link")[1].setAttribute("href",cssThemes[theme])
     setTimeout(function () {
         document.querySelector("#click").click()
     },100)

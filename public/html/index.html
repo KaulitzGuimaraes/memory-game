@@ -4,55 +4,96 @@
     <meta charset="UTF-8">
     <script  src="../javascripts/memorygame.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
     <title>Test</title>
 </head>
 <body>
-<h1>MEMORY GAME</h1>
-<a id="click" href="#push"></a>
-<header id="members">Kaulitz Guimarães : 188530 - Rodrigo Martins : 157194 - Verussa Caridi : 206453 -  Brenda Januário : 194832 </header>
-<form>
-    First Player:<br/>
-    <input id="name1" type="text" name="firstname"><br/>
-    Second Player:<br/>
-    <input id="name2" type="text" name="lastname" value="" ><br/>
-    Table configuration :<br/>
-    <input type="radio" name="table" value="1" checked> 2x2<br/>
-    <input type="radio" name="table" value="2" > 4x4<br/>
-    <input type="radio" name="table" value="3" > 6x6<br/>
-    Theme :<br/>
-    <input type="radio" name="theme" value="1" checked> programmerAddicted<br/>
-    <input type="radio" name="theme" value="2" > Halloween<br/>
-    <input type="radio" name="theme" value="3" > Meme Icons<br/>
-
-    <input type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
-    <input type="button" onclick="startGame()" value="START GAME">
-</form>
 <div class="container">
-    <div id="table">
+<h1 class="init">MEMORY GAME</h1>
+<a id="click" href="#push"></a>
+<br/>
+<header class="init" id="members"> Kaulitz Guimarães : 188530 - Rodrigo Martins : 157194 - Verussa Caridi : 206453 -  Brenda Januário : 194832 </header>
+ <br/><br/>
 
-        <h2>RULES</h2>
-        <ol>
-            <li>You must choose the theme and the table configuration</li>
-            <li>If you want to play as  a Single Player, let the name of player 2 in blank</li>
-            <li>The first player is the  name1 </li>
-            <li>The game ends when the last pair of pieces is founded.</li>
-            <li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>
-            <li>Have a nice game!!!</li>
-        </ol>
 
+        <div  id="gameForm" class="container">
+
+            <div class="jumbotron">
+                <form>
+                    <h4>Game Form : </h4>
+
+                    First Player : <br/>
+                    <input id="name1" type="text" name="firstname"><br/>
+                    Second Player:<br/>
+                    <input id="name2" type="text" name="lastname" value="" ><br/>
+
+
+                    Table configuration :<br/>
+                    <input type="radio" name="table" value="1" checked> 2x2<br/>
+                    <input type="radio" name="table" value="2" > 4x4<br/>
+                    <input type="radio" name="table" value="3" > 6x6<br/>
+
+                    Theme :<br/>
+                    <input type="radio" name="theme" value="1" checked> programmerAddicted<br/>
+                    <input type="radio" name="theme" value="2" > Halloween<br/>
+                    <input type="radio" name="theme" value="3" > Meme Icons<br/>
+                    <input type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
+                    <input type="button" onclick="startGame()" value="START GAME">
+                </form>
+            </div>
+
+
+        </div>
+
+
+
+
+<div class="container">
+    <div id="memoryGame" class="jumbotron">
+        <div id="table">
+            <h2>RULES</h2>
+            <ol>
+                <li>You must choose the theme and the table configuration</li>
+                <li>If you want to play as  a Single Player, let the name of player 2 in blank</li>
+                <li>The first player is the  name1 </li>
+                <li>The game ends when the last pair of pieces is founded.</li>
+                <li>You can flip all th pieces with button 'FLIP', it will not change  your game dynamic, <br/> if you want to untap the pieces, click in 'BACK' </li>
+                <li>Have a nice game!!!</li>
+            </ol>
+        </div>
+
+        <br/>
+        <br/>
+        <form>
+
+            <input type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
+            <input type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
+            <input type="button" onclick="stopGame(true)" value="STOP GAME">
+        </form>
     </div>
+</div>
     <h3 id="push"></h3>
-    <div id="history"></div>
+
+
+    <div id="historyGame">
+        <div   class="container">
+            <div class="table-wrapper-scroll-y jumbotron">
+                <h4>Game History: </h4>
+
+                <div id="history"></div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
 </div>
 
-<form>
-
-    <input type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
-    <input type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
-    <input type="button" onclick="stopGame(true)" value="STOP GAME">
-</form>
-
-
-<footer> Web programming- SI401A </footer>
+<footer class="container init" >Web programming- SI401A </footer>
 </body>
 </html>

@@ -1,17 +1,10 @@
 body{
-    background-color: mediumpurple;
+    background-image: url("../images/halloweenWallpaper.jpg");
+    background-repeat: no-repeat;
 
 }
-#table{
 
-    width: 800px;
-}
-.container{
 
-    display: flex;
-    justify-content: center;
-}
-td img{
-    width: 3cm;
-    height: 3cm;
+.init {
+    color: mediumpurple;
 }
