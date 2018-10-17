@@ -381,6 +381,8 @@ class Table4x4 extends TableConfig{
             '<td id="Z_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="Z_TW" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="Z_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '</tr>' +
+            '<tr>' +
             '<td  id="O_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="O_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="O_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
@@ -391,6 +393,8 @@ class Table4x4 extends TableConfig{
             '<td  id="TW_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="TW_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="TW_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '</tr>' +
+            '<tr>' +
             '<td  id="TH_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="TH_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="TH_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
@@ -428,14 +432,16 @@ class Table6x6 extends TableConfig{
             '<td id="Z_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="Z_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="Z_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '</tr>' +
+            '<tr>' +
             '<td  id="O_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="O_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="O_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '</tr>' +
-            '<tr>' +
             '<td  id="O_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="O_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="O_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '</tr>' +
+            '<tr>' +
             '<td  id="TW_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="TW_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="TW_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
@@ -450,14 +456,16 @@ class Table6x6 extends TableConfig{
             '<td  id="TH_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="TH_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="TH_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '</tr>' +
+            '<tr>' +
             '<td  id="FO_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="FO_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="FO_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
-            '</tr>' +
-            '<tr>' +
             '<td  id="FO_TH" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="FO_FO" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td id="FO_FI" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
+            '</tr>' +
+            '<tr>' +
             '<td  id="FI_Z"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="FI_O" class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
             '<td  id="FI_TW"  class="unclicked" onclick="verifyIfPieceClick(this.id)"><img src="../images/back.jpg" alt=""/></td>' +
