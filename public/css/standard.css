@@ -25,22 +25,22 @@ footer{
 
 }
 
-table{
-    border-width: 10px;
-    border-style: solid;
-    border-collapse: separate;
-    width: 400px;
+table {
+    border:none !important;
+    border-spacing: 10px 0 !important;
+    /* override bootstrap default */
+    border-collapse:separate !important;
 }
 
-tr, th, td{
-    border-width:10px;
-    border-style: solid;
-    border-color: white;
+td {
+    background: pink;
+    padding: 1em;
+    /* for demo only - not a border */
+    outline:5px solid lightgrey;
 }
 
 td img{
     width: 3cm;
     height: 3cm;
 }
-
 
