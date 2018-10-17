@@ -1,12 +1,43 @@
 body{
     background-image: url("../images/halloweenWallpaper.jpg");
-    background-repeat: no-repeat;
 
 }
-
 
 .init {
     color: mediumpurple;
+    font-family: 'Creepster', cursive;
 }
 
+.formTitle {
+    font-family: 'Creepster', cursive;
+    font-size: 3rem;
+}
 
+.generalButton {
+    font-family: 'Creepster', cursive;
+    margin-top: 10px;
+    background-color: goldenrod;
+    border: none;
+    padding: 6px 15px;
+}
+
+.startGame {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    margin-top: 10px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+.stopGame {
+    font-family: 'Creepster', cursive;
+    letter-spacing: .2rem;
+    margin-top: 10px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+}

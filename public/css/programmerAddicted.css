@@ -1,9 +1,36 @@
 body{
     background-image : url("../images/paw.jpg");
-
 }
 
 .init{
     color: greenyellow;
 }
 
+.container {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.generalButton {
+    margin-top: 10px;
+    background-color: cornflowerblue;
+    border: none;
+    padding: 6px 15px;
+}
+
+.startGame {
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+.stopGame {
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+}
