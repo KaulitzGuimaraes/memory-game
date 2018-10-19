@@ -1,5 +1,3 @@
-
-
 .init{
     text-align: center;
 }
@@ -18,14 +16,16 @@
 footer{
     font-size: large;
     text-align: center;
-
 }
+
 #table{
     margin: auto;
 
 }
 
 table {
+    margin: auto;
+    
     border:none !important;
     border-spacing: 10px 0 !important;
     /* override bootstrap default */
@@ -33,14 +33,92 @@ table {
 }
 
 td {
+    
     background: pink;
-    padding: 1em;
     /* for demo only - not a border */
     outline:5px solid lightgrey;
 }
 
 td img{
-    width: 3cm;
-    height: 3cm;
+    width: 2.5cm;
+    height: 2.5cm;
 }
 
+.formTitle {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.wrapperForm {
+    width: 100%;
+    overflow: hidden;
+}
+
+.playerNames {
+    float: left;
+    width: 50%;
+}
+
+.tableConfig {
+    margin-top: 35px;
+    margin-bottom: 5px;
+    float: left;
+    width: 50%;
+    height: auto;
+}
+
+.gridXY {
+    font-weight: normal !important;
+}
+
+.gameTheme {
+    width: 100%;
+    overflow: hidden;
+}
+
+.gameThemeOption {
+    width: 20%;
+    font-weight: normal !important;
+    float: left;
+}
+
+.formButtons {
+    text-align: center;
+}
+
+input[type=text] {
+    width: 80%;
+    padding: 6px 6px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=button] {
+    border-radius: 5px;
+}
+
+.generalButton {
+    margin-top: 10px;
+    background-color: pink;
+    border: none;
+    padding: 6px 15px;
+}
+
+.startGame {
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: deeppink;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+.stopGame {
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: deeppink;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+}

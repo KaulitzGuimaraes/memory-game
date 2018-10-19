@@ -6,10 +6,9 @@
     <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
     <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Creepster|Source+Code+Pro" rel="stylesheet" type="text/css"/>
 
-
-
-    <title>Test</title>
+    <title>Memory Game</title>
 </head>
 <body>
 <div class="container">
@@ -24,33 +23,37 @@
 
             <div class="jumbotron">
                 <form>
-                    <h4>Game Form : </h4>
+                    <h3 class="formTitle">Game Form</h3>
+                    
+                    <div class="wrapperForm">
+                    <div class="playerNames">
+                        <label>First Player :</label><br/>
+                        <input id="name1" type="text" name="firstname" placeholder="Player 1 name..."><br/>
+                        <label>Second Player:</label><br/>
+                        <input id="name2" type="text" name="lastname" placeholder="Player 2 name..."><br/>
+                    </div>
 
-                    First Player : <br/>
-                    <input id="name1" type="text" name="firstname"><br/>
-                    Second Player:<br/>
-                    <input id="name2" type="text" name="lastname" value="" ><br/>
+                    <div class="tableConfig">
+                        <label>Table configuration :</label><br/>
+                        <label class="gridXY"><input type="radio" name="table" value="1" checked> 2x2</label><br/>
+                        <label class="gridXY"><input type="radio" name="table" value="2"> 4x4</label><br/>
+                        <label class="gridXY"><input type="radio" name="table" value="3"> 6x6</label><br/>
+                    </div>
+                    </div>
 
-
-                    Table configuration :<br/>
-                    <input type="radio" name="table" value="1" checked> 2x2<br/>
-                    <input type="radio" name="table" value="2" > 4x4<br/>
-                    <input type="radio" name="table" value="3" > 6x6<br/>
-
-                    Theme :<br/>
-                    <input type="radio" name="theme" value="1" checked> programmerAddicted<br/>
-                    <input type="radio" name="theme" value="2" > Halloween<br/>
-                    <input type="radio" name="theme" value="3" > Meme Icons<br/>
-                    <input type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
-                    <input type="button" onclick="startGame()" value="START GAME">
+                    <div class="gameTheme">
+                        <label>Theme :</label><br/>
+                        <label class="gameThemeOption"><input type="radio" name="theme" value="1" checked> programmerAddicted</label>
+                        <label class="gameThemeOption"><input type="radio" name="theme" value="2" > Halloween</label>
+                        <label class="gameThemeOption"><input type="radio" name="theme" value="3" > Meme Icons</label><br/>
+                    </div>
+                    <div class="formButtons">
+                        <input class="generalButton" type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
+                        <input class="startGame" type="button"  onclick="startGame()" value="START GAME">
+                    </div>
                 </form>
             </div>
-
-
         </div>
-
-
-
 
 <div class="container">
     <div id="memoryGame" class="jumbotron">
@@ -70,9 +73,9 @@
         <br/>
         <form>
 
-            <input type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
-            <input type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
-            <input type="button" onclick="stopGame(true)" value="STOP GAME">
+            <input class="generalButton" type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
+            <input class="generalButton" type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
+            <input class="stopGame" type="button"  onclick="stopGame(true)" value="STOP GAME">
         </form>
     </div>
 </div>
@@ -91,8 +94,6 @@
 
         </div>
     </div>
-
-
 </div>
 
 <footer class="container init" >Web programming- SI401A </footer>
