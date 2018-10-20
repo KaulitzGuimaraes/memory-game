@@ -1,0 +1,45 @@
+body{
+    background-image: url("../images/foodbg.png");
+    background-size: cover;
+}
+
+.init {
+    color: #ffcfff !important;
+    font-family: 'Creepster', cursive;
+}
+
+.formTitle {
+    color: #a95e40 !important;
+    font-family: 'Creepster', cursive;
+    font-size: 3rem;
+}
+
+.generalButton {
+    font-family: 'Creepster', cursive;
+    margin-top: 10px;
+    background-color: #f6ebd6  !important;
+    color: #642914 !important;
+    border: none;
+    padding: 6px 15px;
+}
+
+.startGame {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    margin-top: 10px;
+    background-color: #88472b !important;
+    color: #ffcfff !important;
+    border: none;
+    padding: 10px 20px;
+}
+
+.stopGame {
+    font-family: 'Creepster', cursive;
+    letter-spacing: .2rem;
+    margin-top: 10px;
+    background-color: #88472b !important;
+    color: #ffcfff !important;
+    border: none;
+    padding: 6px 15px;
+}

@@ -1,0 +1,37 @@
+body{
+    background-image:  url("../images/foodbg.png");
+}
+.init{
+    color: white;
+    font-family: 'Impact', fantasy;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.formTitle {
+    color: white;
+    font-family: 'Impact', fantasy;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 3rem;
+    letter-spacing: .2rem;
+}
+
+.generalButton {
+    color: white;
+    font-family: 'Impact', fantasy;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.startGame {
+    font-family: 'Impact', fantasy;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    letter-spacing: .2rem;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.stopGame {
+    font-family: 'Impact', fantasy;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    letter-spacing: .2rem;
+    font-weight: normal;
+}

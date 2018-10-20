@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <script  src="../javascripts/memorygame.js"></script>
+    <script  src="../javascripts/sweetalert2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert2.css"/>
     <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
     <link rel="stylesheet" type="text/css" href="../css/standard.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet" type="text/css"/>
-
+    <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Metamorphous' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Eater' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Creepster|Source+Code+Pro" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>            
     <title>Memory Game</title>
 </head>
 <body>
@@ -45,7 +50,8 @@
                         <label>Theme :</label><br/>
                         <label class="gameThemeOption"><input type="radio" name="theme" value="1" checked> programmerAddicted</label>
                         <label class="gameThemeOption"><input type="radio" name="theme" value="2" > Halloween</label>
-                        <label class="gameThemeOption"><input type="radio" name="theme" value="3" > Meme Icons</label><br/>
+                        <label class="gameThemeOption"><input type="radio" name="theme" value="3" > Meme Icons</label>
+                        <label class="gameThemeOption"><input type="radio" name="theme" value="4" > Cute Food</label><br/>
                     </div>
                     <div class="formButtons">
                         <input class="generalButton" type="button" onclick="chooseRandomly()" value="CHOOSE RANDOMLY">
@@ -76,7 +82,6 @@
             <input class="generalButton" type="button" onclick="dealWithUnclickedPieces(false)" value="FLIP">
             <input class="generalButton" type="button" onclick="dealWithUnclickedPieces(true)" value="BACK">
             <input class="stopGame" type="button"  onclick="stopGame(true)" value="STOP GAME">
-
         </form>
     </div>
 </div>
