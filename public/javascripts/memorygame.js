@@ -63,11 +63,32 @@ function stopGame() {
 }
 
 function dealWithUnclickedPieces(unclick) {
+
     var htmlTds = getPiecesToShow()
+
     for (var pos in htmlTds){
-        document.querySelector('#' + htmlTds[pos].id).innerHTML = "<img src='"+ getImage(unclick,htmlTds[pos].id)+"' alt=''/>"
+         try {
+
+             document.querySelector('#' + htmlTds[pos].id).innerHTML = "<img src='"+ getImage(unclick,htmlTds[pos].id)+"' alt=''/>"
+             verifyIfPiecesAreClickedOrUnclicked(unclick,htmlTds[pos].id)
+
+         }catch (err){
+
+               break
+        }
+
+    }
+
+}
+
+function verifyIfPiecesAreClickedOrUnclicked(unclick,id){
+    if(unclick){
+        document.querySelector('#'+id).style.pointerEvents = "auto"
+    }else{
+        document.querySelector('#'+id).style.pointerEvents = "none"
     }
 }
+
 function  verifyIfPieceClick(piece){
     document.getElementById(piece).innerHTML = '<img src='+ gamePieces[ Game.instance.table.listOfImages[String(piece)]] +' alt=""/>'
     setTimeout(function () {
