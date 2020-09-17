@@ -41,8 +41,8 @@ rules =
 
 var tableConfig = [undefined,2,4,6]
 
-var themes = [undefined,programmerAddicted,halloween,icons,food]
-var cssThemes = [undefined,"../css/programmerAddicted.css","../css/halloween.css","../css/icons.css","../css/food.css"]
+var themes = [undefined,halloween,halloween,halloween,halloween]
+var cssThemes = [undefined,"../css/halloween.css","../css/halloween.css","../css/halloween.csss","../css/halloween.css"]
 function startGame() {
     var name1 =  document.querySelector("#name1").value
     if(name1 === ""){
@@ -55,11 +55,10 @@ function startGame() {
         return
     }
     var name2 =  document.querySelector("#name2").value
-    var theme = document.querySelector('input[name="theme"]:checked').value
-    backTheme = theme
+    var theme = 3
+    backTheme = theme-1
     var tableConfigN = document.querySelector('input[name="table"]:checked').value
     Game.getGame(tableConfig[tableConfigN],themes[theme],name1,name2)
-    document.querySelectorAll("link")[2].setAttribute("href",cssThemes[theme])
     setTimeout(function () {
         document.querySelector("#click").click()
     },100)
@@ -799,7 +798,6 @@ class Game{
 
      }
 }
-
 /*
 class Pieces{
 
