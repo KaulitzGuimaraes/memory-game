@@ -132,8 +132,7 @@ function getPiecesToShow() {
 }
 
 function chooseRandomly() {
-    var rand1 = Math.floor((Math.random() * NUMBER_OF_OPTIONS)  )
-    document.querySelectorAll('input[name="theme"]')[rand1].click()
+  
     var rand2 = Math.floor((Math.random() * NUMBER_OF_OPTIONS)  )
 
     document.querySelectorAll('input[name="table"]')[rand2].click()
