@@ -1,25 +1,26 @@
 body{
-    background-image: url("../images/halloweenWallpaper.jpg");
+    background-image: url("../images/dprianwallpaper.png");
     background-size: cover;
 
 }
 
 .init {
-    color: rgb(156, 0, 0)  !important;
-    font-family: 'Eater', cursive;
-    color: #cb0606  !important;
+    color: rgb(255, 255, 255)  !important;
+    font-family: 'Source Code Pro', monospace;
+    color: white  !important;
 }
 
 .formTitle {
-    font-family: 'Eater', cursive;
+    
     font-size: 3rem;
-    color: rgb(156, 0, 0)  !important;
+    color: rgb(0, 0, 0)   !important;
 }
 
 .generalButton {
     font-family: 'Eater', cursive;
     margin-top: 10px;
-    background-color: goldenrod  !important;
+    background-color: white  !important;
+    color: rgb(0,0,0);
     border: none;
     padding: 6px 15px;
 }
@@ -30,7 +31,7 @@ body{
     letter-spacing: .2rem;
     margin-top: 10px;
     background-color : #26140e !important;
-    color: #ff0808 !important;
+    color: rgb(255, 255, 255)   !important;
     border: none;
     padding: 10px 20px;
     z-index: 1;
@@ -41,7 +42,7 @@ body{
     letter-spacing: .2rem;
     margin-top: 10px;
     background-color: #26140e  !important;
-    color: #ff0808  !important;
+    color: rgb(255, 255, 255)   !important;
     border: none;
     padding: 6px 15px;
 }

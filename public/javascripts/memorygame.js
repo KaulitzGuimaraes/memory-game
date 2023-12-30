@@ -1,25 +1,60 @@
 
 "Enable Experimental JavaScript"
-let programmerAddicted = ["../images/apple.png","../images/astah.jpg","../images/bootstrap.jpg","../images/c.jpg",
-    "../images/coursera.jpg","../images/cpp.jpg","../images/docker.png","../images/github.jpg","../images/ibm.jpg",
-    "../images/java.png","../images/javascript.png","../images/jetbrains.png","../images/php.png","../images/python.jpg",
-    "../images/stackoverflow.png","../images/swift.png","../images/udemy.jpg","../images/xcode.jpg"]
 
-let halloween = ['../images/halloween0.jpg', '../images/halloween1.jpg', '../images/halloween2.jpg',
-    '../images/halloween3.jpg', '../images/halloween4.jpg', '../images/halloween5.png', '../images/halloween6.jpg',
-    '../images/halloween7.jpg', '../images/halloween8.jpg', '../images/halloween9.jpg', '../images/halloween10.jpg',
-    '../images/halloween11.jpg', '../images/halloween12.jpg', '../images/halloween13.jpg', '../images/halloween14.png',
-    '../images/halloween15.jpg', '../images/halloween16.jpg', '../images/halloween17.png', '../images/halloween.jpg','../images/halloween18.png']
-let icons = ['../images/icon0.jpg', '../images/icon1.jpg', '../images/icon2.jpg',
-    '../images/icon3.jpg', '../images/icon4.jpg', '../images/icon5.jpg', '../images/icon6.jpg',
-    '../images/icon7.jpg', '../images/icon8.jpg', '../images/icon9.jpg', '../images/icon10.jpg',
-    '../images/icon11.jpg', '../images/icon12.jpg', '../images/icon13.jpg', '../images/icon14.jpg',
-    '../images/icon15.jpg', '../images/icon16.jpg', '../images/icon17.jpg']
-let food = ['../images/snack0.gif', '../images/snack1.gif', '../images/snack2.gif',
-    '../images/snack3.gif', '../images/snack4.gif', '../images/snack5.gif', '../images/snack6.gif',
-    '../images/snack7.gif', '../images/snack8.gif', '../images/snack9.gif', '../images/snack10.gif',
-    '../images/snack11.gif', '../images/snack12.gif', '../images/snack13.gif', '../images/snack14.gif',
-    '../images/snack15.gif', '../images/snack16.gif', '../images/snack17.gif']
+let dprIan = ['../images/dprian0.jpg', 
+              '../images/dprian1.jpg',
+              '../images/dprian2.jpg',
+              '../images/dprian3.jpg',
+              '../images/dprian4.jpg',
+              '../images/dprian5.jpg',
+              '../images/dprian6.jpg',
+              '../images/dprian7.jpg',
+              '../images/dprian8.jpg',
+              '../images/dprian9.jpg',
+              '../images/dprian10.jpg',
+              '../images/dprian11.jpg',
+              '../images/dprian12.jpg',
+              '../images/dprian13.jpg',
+              '../images/dprian14.jpg',
+              '../images/dprian15.jpg',
+              '../images/dprian16.jpg',
+              '../images/dprian17.jpg']
+let woodz = ['../images/woodz0.jpeg', 
+            '../images/woodz1.jpeg',  
+            '../images/woodz2.jpeg',
+            '../images/woodz3.jpeg', 
+            '../images/woodz4.jpeg', 
+            '../images/woodz5.jpeg', 
+            '../images/woodz6.jpeg',
+            '../images/woodz7.jpeg', 
+            '../images/woodz8.jpeg', 
+            '../images/woodz9.jpeg', 
+            '../images/woodz10.jpeg',
+            '../images/woodz11.jpeg', 
+            '../images/woodz12.jpeg', 
+            '../images/woodz13.jpeg', 
+            '../images/woodz14.jpeg',
+            '../images/woodz15.jpeg', 
+            '../images/woodz16.jpeg', 
+            '../images/woodz17.jpeg']
+let jackson = ['../images/jackson0.jpeg', 
+                '../images/jackson1.jpeg', 
+                '../images/jackson2.jpeg',
+                '../images/jackson3.jpeg',
+                '../images/jackson4.jpeg',
+                '../images/jackson5.jpeg', 
+                '../images/jackson6.jpeg',
+                '../images/jackson7.jpeg', 
+                '../images/jackson8.jpeg',
+                '../images/jackson9.jpeg',
+                '../images/jackson10.jpeg',
+                '../images/jackson11.jpeg',
+                '../images/jackson12.jpeg',
+                '../images/jackson13.jpeg',
+                '../images/jackson14.jpeg',
+                '../images/jackson15.jpeg',
+                '../images/jackson16.jpeg',
+                '../images/jackson17.jpeg']
 var gamePieces  = null
 var NUMBER_OF_PIECES = null
 let NUMBER_OF_OPTIONS = 3
@@ -41,8 +76,8 @@ rules =
 
 var tableConfig = [undefined,2,4,6]
 
-var themes = [undefined,programmerAddicted,halloween,icons,food]
-var cssThemes = [undefined,"../css/programmerAddicted.css","../css/halloween.css","../css/icons.css","../css/food.css"]
+var themes = [undefined,jackson,dprIan,woodz]
+var cssThemes = [undefined,"../css/jackson.css","../css/dprian.css","../css/woodz.css"]
 function startGame() {
     var name1 =  document.querySelector("#name1").value
     if(name1 === ""){

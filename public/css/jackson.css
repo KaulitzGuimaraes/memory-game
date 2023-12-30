@@ -1,26 +1,27 @@
 body{
-    background-image : url("../images/paw.jpg");
+    background-image : url("../images/jacksonwallpaper.jpeg");
 }
 
 .init{
-    color: greenyellow;
+    color: white;
 }
 
 .container {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Jazz LET' , 'fantasy';
 }
 
 .generalButton {
     margin-top: 10px;
-    background-color: cornflowerblue;
+    background-color: rgb(97, 6, 6);
     border: none;
     padding: 6px 15px;
+    color: white;
 }
 
 .startGame {
     font-weight: bold;
     margin-top: 10px;
-    background-color: darkblue;
+    background-color: rgb(0, 0, 0);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -29,7 +30,7 @@ body{
 .stopGame {
     font-weight: bold;
     margin-top: 10px;
-    background-color: darkblue;
+    background-color: rgb(0, 0, 0);
     color: white;
     border: none;
     padding: 6px 15px;

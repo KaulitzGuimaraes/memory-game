@@ -100,7 +100,7 @@ input[type=button] {
 
 .generalButton {
     margin-top: 10px;
-    background-color: pink;
+    background-color: lightblue;
     border: none;
     padding: 6px 15px;
 }
@@ -108,7 +108,7 @@ input[type=button] {
 .startGame {
     font-weight: bold;
     margin-top: 10px;
-    background-color: deeppink;
+    background-color: blue;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -117,7 +117,7 @@ input[type=button] {
 .stopGame {
     font-weight: bold;
     margin-top: 10px;
-    background-color: deeppink;
+    background-color: blue;
     color: white;
     border: none;
     padding: 6px 15px;
